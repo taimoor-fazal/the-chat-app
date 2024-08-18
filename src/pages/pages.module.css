@@ -2,13 +2,50 @@
   --color-neutral-1: #121618;
   --color-neutral-2: #182025;
   --color-neutral-3: #1b252b;
+  --color-neutral-4: #26323c;
   --color-primary-1: #fae100;
   --color-primary-2: #f2c83e;
   --color-primary-3: #ffa738;
 
-  border: 1px solid red;
   background-color: var(--color-neutral-1);
-  padding: 16px;
+  padding: 5rem 1rem 1rem;
+
   height: 100vh;
   color: white;
+}
+
+.body {
+  border-radius: 8px;
+  display: flex;
+  height: 100%;
+  border: 1px solid var(--color-primary-1);
+  box-sizing: border-box;
+}
+
+.list {
+  width: 20%;
+  height: 100%;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  background-color: var(--color-neutral-2);
+}
+.chatBody {
+  width: 80%;
+  padding: 1rem;
+}
+
+.chatTile {
+  display: flex;
+
+  padding: 1rem;
+  background-color: var(--color-neutral-2);
+  cursor: pointer;
+}
+.chatTile:hover {
+  background-color: var(--color-neutral-3);
+}
+.chatTile:active {
+  background-color: var(--color-neutral-4);
 }
