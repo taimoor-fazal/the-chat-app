@@ -1,0 +1,14 @@
+.container {
+  --color-neutral-1: #121618;
+  --color-neutral-2: #182025;
+  --color-neutral-3: #1b252b;
+  --color-primary-1: #fae100;
+  --color-primary-2: #f2c83e;
+  --color-primary-3: #ffa738;
+
+  border: 1px solid red;
+  background-color: var(--color-neutral-1);
+  padding: 16px;
+  height: 100vh;
+  color: white;
+}
