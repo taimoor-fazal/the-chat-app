@@ -33,6 +33,7 @@ export default function Home() {
               setSelectedFriend={setSelectedFriend}
               key={friend.id}
               friend={friend}
+              selectedFriend={selectedFriend}
             />
           ))}
         </span>
@@ -46,13 +47,19 @@ export default function Home() {
 type FriendInfoProps = {
   friend: User;
   setSelectedFriend: (friend: User) => void;
+  selectedFriend?: User | null;
 };
 
-const FriendInfo = ({ friend, setSelectedFriend }: FriendInfoProps) => {
+const FriendInfo = ({
+  friend,
+  setSelectedFriend,
+  selectedFriend,
+}: FriendInfoProps) => {
   return (
     <button
       key={friend.id}
       className={CSS.chatTile}
+      data-active={selectedFriend?.id === friend.id}
       onClick={() => {
         setSelectedFriend(friend);
       }}
@@ -66,7 +73,6 @@ type ConversationViewProps = {
   friend: User | null;
 };
 const ConversationView = ({ friend }: ConversationViewProps) => {
-  console.log(friend?.chat);
   const [chat, setChat] = useState(friend?.chat || []);
   const [message, setMessage] = useState("");
 
@@ -74,7 +80,12 @@ const ConversationView = ({ friend }: ConversationViewProps) => {
     setChat(friend?.chat || []);
   }, [friend]);
 
-  if (!friend) return <i>Select a friend to chat</i>;
+  if (!friend)
+    return (
+      <div className={CSS.noData}>
+        <i>Select a friend to chat</i>
+      </div>
+    );
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (event.key === "Enter") {
@@ -101,19 +112,22 @@ const ConversationView = ({ friend }: ConversationViewProps) => {
         className={CSS.chatHeader}
       >{`${friend.name} ( ${friend.userName} )`}</span>
 
-      {chat?.length === 0 && <i>No messages found</i>}
-
-      {chat?.map((message) => (
-        <div className={CSS.messageRow} key={message.id}>
-          <span
-            data-received={message.type === "received"}
-            className={CSS.messageBubble}
-          >
-            {message.text}
-          </span>
+      {chat?.length === 0 && (
+        <div className={CSS.noData}>
+          <i>No messages found</i>
         </div>
-      ))}
-
+      )}
+      <div className={CSS.conversation}>
+        {chat?.map((message) => (
+          <div
+            data-received={message.type === "received"}
+            className={CSS.messageRow}
+            key={message.id}
+          >
+            <span className={CSS.messageBubble}>{message.text}</span>
+          </div>
+        ))}
+      </div>
       <textarea
         value={message}
         onChange={handleChange}
