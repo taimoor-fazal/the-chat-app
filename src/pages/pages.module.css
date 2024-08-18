@@ -36,6 +36,18 @@
   padding: 1rem;
 }
 
+.searchFriendField {
+  padding: 1rem;
+}
+.searchTextbox {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--color-neutral-4);
+  background-color: var(--color-neutral-2);
+  color: white;
+}
+
 .chatTile {
   display: flex;
 
@@ -48,4 +60,14 @@
 }
 .chatTile:active {
   background-color: var(--color-neutral-4);
+}
+
+.chatBoxTextArea {
+  height: 150px;
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--color-neutral-4);
+  background-color: var(--color-neutral-2);
+  color: white;
 }
