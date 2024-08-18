@@ -3,6 +3,7 @@ export type User = {
   name: string;
   userName: string;
   email?: string;
+  chat?: Message[];
 };
 
 export type Message = {
@@ -10,11 +11,6 @@ export type Message = {
   text: string;
   date: Date;
   type: MessageType;
-};
-
-export type Conversation = {
-  user: User;
-  messages: Message[];
 };
 
 export type MessageType = "sent" | "received";

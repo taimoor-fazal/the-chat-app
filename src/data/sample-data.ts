@@ -1,43 +1,11 @@
-import { Conversation, User } from "../types/global-types";
+import { User } from "../types/global-types";
 
 export const friends: User[] = [
   {
     id: "1",
     name: "M. Smith",
     userName: "msmith",
-  },
-  {
-    id: "2",
-    name: "J. Doe",
-    userName: "jdoe",
-  },
-  {
-    id: "3",
-    name: "A. Johnson",
-    userName: "ajohnson",
-  },
-  {
-    id: "4",
-    name: "M. Johnson",
-    userName: "mjohnson",
-  },
-  {
-    id: "5",
-    name: "J. Smith",
-    userName: "jsmith",
-  },
-  {
-    id: "6",
-    name: "M. Ali",
-    userName: "mali",
-  },
-  { id: "7", name: "M. Khan", userName: "mkhan" },
-];
-
-export const messages: Conversation[] = [
-  {
-    user: friends[0],
-    messages: [
+    chat: [
       {
         id: "1",
         text: "Hello, how are you?",
@@ -59,8 +27,10 @@ export const messages: Conversation[] = [
     ],
   },
   {
-    user: friends[1],
-    messages: [
+    id: "2",
+    name: "J. Doe",
+    userName: "jdoe",
+    chat: [
       {
         id: "1",
         text: "Hello, are you going to the concert next week?",
@@ -70,8 +40,10 @@ export const messages: Conversation[] = [
     ],
   },
   {
-    user: friends[2],
-    messages: [
+    id: "3",
+    name: "A. Johnson",
+    userName: "ajohnson",
+    chat: [
       {
         id: "1",
         text: "Hello, Any plans for this summer?",
@@ -92,4 +64,20 @@ export const messages: Conversation[] = [
       },
     ],
   },
+  {
+    id: "4",
+    name: "M. Johnson",
+    userName: "mjohnson",
+  },
+  {
+    id: "5",
+    name: "J. Smith",
+    userName: "jsmith",
+  },
+  {
+    id: "6",
+    name: "M. Ali",
+    userName: "mali",
+  },
+  { id: "7", name: "M. Khan", userName: "mkhan" },
 ];
