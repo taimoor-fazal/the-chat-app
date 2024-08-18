@@ -6,6 +6,7 @@
   --color-primary-1: #fae100;
   --color-primary-2: #f2c83e;
   --color-primary-3: #ffa738;
+  --color-bubble: #218aff;
 
   background-color: var(--color-neutral-1);
   padding: 5rem 1rem 1rem;
@@ -31,9 +32,14 @@
   border-radius: 8px;
   background-color: var(--color-neutral-2);
 }
+
 .chatBody {
-  width: 80%;
+  width: 100%;
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
+
+  overflow: auto;
 }
 
 .searchFriendField {
@@ -49,11 +55,12 @@
 }
 
 .chatTile {
+  border: none;
   display: flex;
-
   padding: 1rem;
   background-color: var(--color-neutral-2);
   cursor: pointer;
+  color: white;
 }
 .chatTile:hover {
   background-color: var(--color-neutral-3);
@@ -70,4 +77,36 @@
   border: 1px solid var(--color-neutral-4);
   background-color: var(--color-neutral-2);
   color: white;
+  margin-top: auto;
+}
+
+.chatHeader {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--color-primary-3);
+}
+
+.messageRow {
+  display: flex;
+
+  padding: 0.5rem;
+  width: 100%;
+}
+
+.messageBubble {
+  max-width: 70%;
+  padding: 0.75rem 1rem;
+  border-radius: 20px;
+  margin: 0.5rem 0;
+  display: inline-block;
+  position: relative;
+  word-wrap: break-word;
+  background-color: var(--color-bubble);
+  margin-left: auto;
+}
+
+.messageBubble[data-received="true"] {
+  margin-right: auto;
 }
